@@ -1,0 +1,16 @@
+{
+    "pKey": {
+        "path": "env[P_KEY_PATH]",
+        "password": "env[P_KEY_PASSWORD]"
+    },
+    "servers": [
+        {
+            "host": "host1",
+            "port": 22
+        },
+        {
+            "host": "host2",
+            "port": 22
+        }
+    ]
+}
