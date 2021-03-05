@@ -1,7 +1,8 @@
 {
-    "pKey": {
-        "path": "env[P_KEY_PATH]",
-        "password": "env[P_KEY_PASSWORD]"
+    "User": "env[USER]",
+    "Key": {
+        "Path": "env[P_KEY_PATH]",
+        "Password": "env[P_KEY_PASSWORD]"
     },
     "servers": [
         {
