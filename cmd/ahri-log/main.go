@@ -6,6 +6,7 @@ import (
 	"io"
 	"io/ioutil"
 
+	"github.com/webornottoweb/ahri-log/config"
 	"golang.org/x/crypto/ssh"
 )
 
@@ -85,9 +86,9 @@ func bindStream(out chan Message, input *io.Reader) {
 
 func initConn() *ssh.Client {
 	config := &ssh.ClientConfig{
-		User: "username",
+		User: string(config.Endpoints.User),
 		Auth: []ssh.AuthMethod{
-			publickey("~/.ssh/id_rsa"),
+			publickey(string(config.Endpoints.Key.Path)),
 		},
 		HostKeyCallback: ssh.InsecureIgnoreHostKey(),
 	}
@@ -107,7 +108,7 @@ func publickey(path string) ssh.AuthMethod {
 		panic(err)
 	}
 
-	signer, err := ssh.ParsePrivateKeyWithPassphrase(key, []byte("password"))
+	signer, err := ssh.ParsePrivateKeyWithPassphrase(key, []byte(config.Endpoints.Key.Password))
 	if err != nil {
 		panic(err)
 	}

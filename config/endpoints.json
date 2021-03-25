@@ -4,14 +4,14 @@
         "Path": "env[P_KEY_PATH]",
         "Password": "env[P_KEY_PASSWORD]"
     },
-    "servers": [
+    "Servers": [
         {
-            "host": "host1",
-            "port": 22
+            "Host": "env[HOST_1]",
+            "Port": 22
         },
         {
-            "host": "host2",
-            "port": 22
+            "Host": "env[HOST_2]",
+            "Port": 22
         }
     ]
 }

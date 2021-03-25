@@ -16,6 +16,10 @@ type EndpointsConfig struct {
 		Path     lj.JEnvString
 		Password lj.JEnvString
 	}
+	Servers []struct {
+		Host lj.JEnvString
+		Port lj.JEnvInt
+	}
 }
 
 // ColorsConfig represents configuration for text output coloring
