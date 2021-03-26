@@ -1,4 +1,4 @@
-package config
+package configs
 
 import (
 	"encoding/json"
@@ -45,7 +45,7 @@ func init() {
 		return
 	}
 
-	file, err := ioutil.ReadFile("config/endpoints.json")
+	file, err := ioutil.ReadFile("configs/endpoints.json")
 	if err != nil {
 		log.Fatal("Error loading endpoints.json file")
 		return
@@ -61,7 +61,7 @@ func init() {
 
 	Endpoints = &ep
 
-	file, err = ioutil.ReadFile("config/colors.json")
+	file, err = ioutil.ReadFile("configs/colors.json")
 	if err != nil {
 		log.Fatal("Error loading colors.json file")
 		return
