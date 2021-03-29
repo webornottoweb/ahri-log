@@ -33,7 +33,7 @@ func (c *Connection) Init() {
 
 	conn, err := ssh.Dial("tcp", string(c.Server.Host)+":"+fmt.Sprint(c.Server.Port), config)
 	if err != nil {
-		panic(err)
+		panic(fmt.Sprintf("[%s] failed to init connection: [%s]", c.Server.Host, err))
 	}
 
 	c.conn = conn
@@ -81,7 +81,7 @@ func (c *Connection) bindStream(out chan Message, input *io.Reader) {
 			if err == io.EOF {
 				break
 			}
-			panic(err)
+			panic(fmt.Sprintf("[%s] failed to execute command: %s", c.Server.Host, err))
 		}
 
 		out <- Message{
